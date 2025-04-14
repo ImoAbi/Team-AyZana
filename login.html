@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team-AyZana - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TEAM-AYZANA</h1>
+            <p>Ihr persönlicher Medikamenten-Manager</p>
+        </header>
+
+        <main>
+            <section class="login-section">
+                <h2>ANMELDUNG</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">E-MAIL:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">PASSWORT:</label>
+                        <div class="password-container">
+                            <input type="password" id="password" required>
+                            <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                                <span class="eye-icon">👁️</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="login-button">ANMELDEN</button>
+                </form>
+                
+                <p class="register-link">Noch kein Konto? <a href="register.html">Registrieren</a></p>
+            </section>
+        </main>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html> 

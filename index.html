@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team-AyZana - Ihr Medikamenten-Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TEAM-AYZANA</h1>
+            <p>Ihr persönlicher Medikamenten-Manager</p>
+            <button class="logout-button" onclick="logout()">ABMELDEN</button>
+        </header>
+
+        <main>
+            <section id="history" class="history-section">
+                <h2>EINNAHMEHISTORIE</h2>
+                <div class="history-controls">
+                    <select id="history-period">
+                        <option value="today">HEUTE</option>
+                        <option value="week">DIESE WOCHE</option>
+                        <option value="month">DIESER MONAT</option>
+                        <option value="all">ALLE ZEITEN</option>
+                    </select>
+                    <button id="export-history" class="export-button">HISTORIE EXPORTIEREN</button>
+                </div>
+                <div class="history-stats">
+                    <div class="stat-box">
+                        <h3>EINGENOMMEN</h3>
+                        <p id="taken-count">0</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>VERPASST</h3>
+                        <p id="missed-count">0</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>ERFOLGSRATE</h3>
+                        <p id="success-rate">0%</p>
+                    </div>
+                </div>
+                <div class="history-timeline">
+                    <h3>ZEITLINIE</h3>
+                    <div id="history-container"></div>
+                </div>
+            </section>
+
+            <section id="reminders" class="reminder-section">
+                <h2>ERINNERUNGEN</h2>
+                <div class="reminder-controls">
+                    <button id="enable-reminders" class="reminder-button">ERINNERUNGEN AKTIVIEREN</button>
+                    <button id="disable-reminders" class="reminder-button" style="display: none;">ERINNERUNGEN DEAKTIVIEREN</button>
+                </div>
+                <div class="reminder-status">
+                    <p>STATUS: <span id="reminder-status-text">INAKTIV</span></p>
+                </div>
+                <div class="next-reminder">
+                    <h3>NÄCHSTE EINNAHMEN</h3>
+                    <div id="next-medications"></div>
+                </div>
+            </section>
+
+            <section id="user-profile" class="profile-section">
+                <h2>BENUTZERPROFIL</h2>
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label for="name">VOR- UND NACHNAME:</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age">ALTER:</label>
+                        <input type="number" id="age" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="insurance">KRANKENVERSICHERUNG:</label>
+                        <input type="text" id="insurance" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="doctor">HAUSARZT:</label>
+                        <input type="text" id="doctor" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pharmacy">STAMMAPOTHEKE:</label>
+                        <input type="text" id="pharmacy" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emergency-contact">NOTFALLKONTAKT:</label>
+                        <input type="text" id="emergency-contact" required>
+                    </div>
+                    
+                    <button type="submit" class="save-button">PROFIL SPEICHERN</button>
+                </form>
+            </section>
+
+            <section id="medication-list" class="medication-section">
+                <h2>MEDIKAMENTENLISTE</h2>
+                <form id="medication-form">
+                    <div class="form-group">
+                        <label for="med-name">MEDIKAMENTENNAME:</label>
+                        <input type="text" id="med-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="med-dosage">DOSIERUNG:</label>
+                        <input type="text" id="med-dosage" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="med-times">EINNAHMEZEITEN:</label>
+                        <div class="time-inputs">
+                            <label><input type="checkbox" name="morning"> MORGENS</label>
+                            <label><input type="checkbox" name="noon"> MITTAGS</label>
+                            <label><input type="checkbox" name="evening"> ABENDS</label>
+                            <label><input type="checkbox" name="night"> NACHTS</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="med-frequency">HÄUFIGKEIT:</label>
+                        <select id="med-frequency" required>
+                            <option value="daily">TÄGLICH</option>
+                            <option value="weekly">WÖCHENTLICH</option>
+                            <option value="monthly">MONATLICH</option>
+                            <option value="as-needed">NACH BEDARF</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="med-notes">BESONDERE HINWEISE:</label>
+                        <textarea id="med-notes" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="save-button">MEDIKAMENT HINZUFÜGEN</button>
+                </form>
+
+                <div class="medications-list">
+                    <h3>MEINE MEDIKAMENTE</h3>
+                    <div id="medications-container"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
